@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
  */
 public class ListTask {
 
-  public String[] outPut() {
+  public String[] readFile() {
     Path filePath = Paths.get("ListTask.txt");
     String[] text = new String[0];
     try {
@@ -24,5 +25,18 @@ public class ListTask {
       System.out.println("Uh-oh, could not read the file!");
     }
     return text;
+  }
+
+  public void write (String string ) {
+    List<String> content = new ArrayList();
+    content.add(string);
+    try { // Required by Files.write(filePath, content)
+      // Creates a new file if not exists and overwrites it's content
+      // The elements of the content lists will become the lines of the file
+      Path filePath = Paths.get("modifiedListTask.txt");
+      Files.write(filePath, content);
+    } catch (Exception e) {
+      System.out.println("Uh-oh, could not write the file!");
+    }
   }
 }
