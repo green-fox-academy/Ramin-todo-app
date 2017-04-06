@@ -24,10 +24,23 @@ public class App {
     if (args[0].equals("-l")) {
       ListTask myLisTask = new ListTask();
       String[] outPut = myLisTask.outPut();
-      for (String items : outPut)
-        System.out.println(items);
-    } else {
-      System.out.println("The task will be listed if you start command line with \"-l\"");
+      for (int i = 0; i < outPut.length; i++) {
+        System.out.println((i + 1) + " - " + outPut[i] + "\n");
+      }
+    }
+    if (args[0].equals("-l")) {
+      ListTask myLisTask = new ListTask();
+      String[] outPut = myLisTask.outPut();
+      //     for (String items : outPut)
+//        System.out.println("No todos for today! :)");
+    }
+
+
+    if (args[0].equals("-a")) {
+//      ToDoList mylist = new ToDoList();
+//      mylist.add();
+
+      System.out.println(args[1].toString());
     }
   }
 }
