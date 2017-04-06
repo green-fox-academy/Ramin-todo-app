@@ -17,7 +17,7 @@ public class App {
       ToDo myToDo = new ToDo(tasks[i]);
       myList.add(myToDo);
     }
-    System.out.println(myList);
+    //  System.out.println(myList);
     if (args.length == 0) {
       System.out.println("Java Todo application\n" +
               "=======================\n" +
@@ -28,34 +28,29 @@ public class App {
               " -c   Completes an task");
     }
 
-//    ToDoList myList = new ToDoList();
-//    ToDo toDo1 = new ToDo("Walk the dog");
-//    myList.add(toDo1);
-//    ToDo toDo2 = new ToDo("Buy milk");
-//    myList.add(toDo2);
-//    ToDo toDo3 = new ToDo("Do homework");
-//    myList.add(toDo3);
 
-
-    //   if (args[0].equals("-l")) {
-    //     ListTask myLisTask = new ListTask();
-    //     String[] list = myLisTask.readFile();
-    //     for (int i = 0; i < list.length; i++) {
-    //       System.out.println((i + 1) + " - " + list[i] + "\n");
-    //    }
-    //   }
     if (args[0].equals("-l")) {
-      EmptyList myEmptyList = new EmptyList();
-      myEmptyList.outPut();
+      //     ListTask myLisTask = new ListTask();
+      //      String[] list = myLisTask.readFile();
+      //     for (int i = 0; i < tasks.length; i++) {
+      System.out.println(myList);
+      //         System.out.println((i + 1) + " - " + tasks[i] + "\n");
+      //      }
+    }
+    if (args[0].equals("-l") && tasks.length == 0) {
+//      EmptyList myEmptyList = new EmptyList();
+      //   myEmptyList.outPut();
+      System.out.println("No todos for today! :)");
     }
 
     if (args[0].equals("-a")) {
 //      ToDoList mylist = new ToDoList();
 //      mylist.add();
 //      System.out.println(args[1].toString());
+      ToDo newToDo = new ToDo(args[1].toString());
+      myList.add(newToDo);
     }
-    ToDo toDo4 = new ToDo(args[1].toString());
-    myList.add(toDo4);
+
     //   System.out.println(myList);
     //   myList.readFile();
 //    String[] list = myList.readFile();
