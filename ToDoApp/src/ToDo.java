@@ -1,3 +1,5 @@
+import java.util.List;
+
 /**
  * Created by HP on 4/6/2017.
  */
@@ -33,6 +35,10 @@ public class ToDo {
 
   @Override
   public String toString() {
-    return (completed ? "[x] " : "[ ] ") + name;
+   return (completed ? "[x] " : "[ ] ") + name;
   }
+
+//  public String show() {
+//   return name;
+//  }
 }

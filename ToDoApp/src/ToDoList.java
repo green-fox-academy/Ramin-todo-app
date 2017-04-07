@@ -9,7 +9,7 @@ import java.util.List;
  * Created by HP on 4/6/2017.
  */
 public class ToDoList {
-  private ArrayList<ToDo> listOfThings;
+  public List<ToDo> listOfThings;
 
   public ToDoList() {
     listOfThings = new ArrayList<>();
