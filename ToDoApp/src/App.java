@@ -40,33 +40,36 @@ public class App {
     if (args[0].equals("-a")) {
       ToDo newToDo = new ToDo(args[1].toString());
       myList.add(newToDo);
-      System.out.println(myList.listOfThings.get(4).nameOfToDos());
+   //   System.out.println(myList.listOfThings.get(newToDo).nameOfToDos());
       System.out.println(myList);
-  //    writeFile(myList.listOfThings.get(3).nameOfToDos());
-
+      ////////// writing to txt file
       List<String> content = new ArrayList();
       for (int i = 0; i < myList.listOfThings.size(); i++) {
         content.add(myList.listOfThings.get(i).nameOfToDos());
       }
-
-  //    content.add(myList.listOfThings.get(4).nameOfToDos());
-
-      try { // Required by Files.write(filePath, content)
-        // Creates a new file if not exists and overwrites it's content
-        // The elements of the content lists will become the lines of the file
+      try {
         Path filePath = Paths.get("ListTask.txt");
         Files.write(filePath, content);
       } catch (Exception e) {
         System.out.println("Uh-oh, could not write the file!");
       }
-
-   //   writeFile(myList.listOfThings.get(3).nameOfToDos()+ "\n" + myList.listOfThings.get(4).nameOfToDos());
-     //      System.out.println(myList);
     }
+
     if (args[0].equals("-r") && Integer.parseInt(args[1]) <= myList.listOfThings.size()) {
       myList.listOfThings.remove(Integer.parseInt(args[1]) - 1);
       System.out.println(myList);
-      writeFile(myList.listOfThings.toString());
+    ////////// writing to txt file
+      List<String> content = new ArrayList();
+      for (int i = 0; i < myList.listOfThings.size(); i++) {
+        content.add(myList.listOfThings.get(i).nameOfToDos());
+      }
+      try {
+        Path filePath = Paths.get("ListTask.txt");
+        Files.write(filePath, content);
+      } catch (Exception e) {
+        System.out.println("Uh-oh, could not write the file!");
+      }
+      /////////////////////////////////////////
     } else if (args[0].equals("-r")) {
       System.out.println("Enter an index between " + 1 + " and " + myList.listOfThings.size());
     }
@@ -95,30 +98,6 @@ public class App {
     return text;
   }
 
-  public static void writeFile(String string) {
-    List<String> content = new ArrayList();
-    content.add(string);
-    //   Path filePath = Paths.get("ListTask.txt");
-    //   try {
-    //   Files.write(filePath, string);
-    //  } catch (IOException e) {
-    //    e.printStackTrace();
-    //  //  }
-    //      try {
-    //       PrintWriter pw = new PrintWriter(new FileOutputStream(filePath),true);
-    //       pw.println(string);
-    //    } catch (FileNotFoundException e) {
-    //       e.printStackTrace();
-    //    }
-    try { // Required by Files.write(filePath, content)
-      // Creates a new file if not exists and overwrites it's content
-      // The elements of the content lists will become the lines of the file
-      Path filePath = Paths.get("ListTask.txt");
 
-      Files.write(filePath, content);
-    } catch (Exception e) {
-      System.out.println("Uh-oh, could not write the file!");
-    }
-  }
 
 }

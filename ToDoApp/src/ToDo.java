@@ -32,7 +32,6 @@ public class ToDo {
     return completed;
   }
 
-
   @Override         ///Show in Terminal
   public String toString() {
    return (completed ? "[x] " : "[ ] ") + name;
@@ -41,4 +40,6 @@ public class ToDo {
   public String nameOfToDos() {
    return name;
   }
+
+
 }
