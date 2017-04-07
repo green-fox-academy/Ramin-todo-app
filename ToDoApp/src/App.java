@@ -40,8 +40,27 @@ public class App {
     if (args[0].equals("-a")) {
       ToDo newToDo = new ToDo(args[1].toString());
       myList.add(newToDo);
- //     System.out.println(myList.listOfThings.get(0).show());
-           writeFile(myList.listOfThings.toString());
+      System.out.println(myList.listOfThings.get(4).nameOfToDos());
+      System.out.println(myList);
+  //    writeFile(myList.listOfThings.get(3).nameOfToDos());
+
+      List<String> content = new ArrayList();
+      for (int i = 0; i < myList.listOfThings.size(); i++) {
+        content.add(myList.listOfThings.get(i).nameOfToDos());
+      }
+
+  //    content.add(myList.listOfThings.get(4).nameOfToDos());
+
+      try { // Required by Files.write(filePath, content)
+        // Creates a new file if not exists and overwrites it's content
+        // The elements of the content lists will become the lines of the file
+        Path filePath = Paths.get("ListTask.txt");
+        Files.write(filePath, content);
+      } catch (Exception e) {
+        System.out.println("Uh-oh, could not write the file!");
+      }
+
+   //   writeFile(myList.listOfThings.get(3).nameOfToDos()+ "\n" + myList.listOfThings.get(4).nameOfToDos());
      //      System.out.println(myList);
     }
     if (args[0].equals("-r") && Integer.parseInt(args[1]) <= myList.listOfThings.size()) {

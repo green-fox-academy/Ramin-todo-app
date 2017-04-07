@@ -33,12 +33,12 @@ public class ToDo {
   }
 
 
-  @Override
+  @Override         ///Show in Terminal
   public String toString() {
    return (completed ? "[x] " : "[ ] ") + name;
   }
 
-//  public String show() {
-//   return name;
-//  }
+  public String nameOfToDos() {
+   return name;
+  }
 }
