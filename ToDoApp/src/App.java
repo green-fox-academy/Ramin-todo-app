@@ -37,28 +37,31 @@ public class App {
       System.out.println("No todos for today! :)");
     }
 
-    if (args[0].equals("-a")) {
-      ToDo newToDo = new ToDo(args[1].toString());
-      myList.add(newToDo);
-   //   System.out.println(myList.listOfThings.get(newToDo).nameOfToDos());
-      System.out.println(myList);
-      ////////// writing to txt file
-      List<String> content = new ArrayList();
-      for (int i = 0; i < myList.listOfThings.size(); i++) {
-        content.add(myList.listOfThings.get(i).nameOfToDos());
-      }
-      try {
-        Path filePath = Paths.get("ListTask.txt");
-        Files.write(filePath, content);
-      } catch (Exception e) {
-        System.out.println("Uh-oh, could not write the file!");
-      }
+    if (args[0].equals("-a") && args.length == 2) {
+      myList.add(args[1].toString());
+//      ToDo newToDo = new ToDo(args[1].toString());
+//      myList.add(newToDo);
+//      System.out.println(myList);
+//      System.out.println(Arrays.toString(args));
+//      /////////////////////////////////////////////////// writing to txt file
+//      List<String> content = new ArrayList();
+//      for (int i = 0; i < myList.listOfThings.size(); i++) {
+//        content.add(myList.listOfThings.get(i).nameOfToDos());
+//      }
+//      try {
+//        Path filePath = Paths.get("ListTask.txt");
+//        Files.write(filePath, content);
+//      } catch (Exception e) {
+//        System.out.println("Uh-oh, could not write the file!");
+//      } ////////////////////////////////////////////////////////////////
+    } else if (args[0].equals("-a") && args.length == 1) {
+      System.out.println("Unsupported argument or Unable to add: no task provided");
     }
 
     if (args[0].equals("-r") && Integer.parseInt(args[1]) <= myList.listOfThings.size()) {
       myList.listOfThings.remove(Integer.parseInt(args[1]) - 1);
       System.out.println(myList);
-    ////////// writing to txt file
+      /////////////////////////////////////////////// writing to txt file
       List<String> content = new ArrayList();
       for (int i = 0; i < myList.listOfThings.size(); i++) {
         content.add(myList.listOfThings.get(i).nameOfToDos());
@@ -69,10 +72,11 @@ public class App {
       } catch (Exception e) {
         System.out.println("Uh-oh, could not write the file!");
       }
-      /////////////////////////////////////////
+      ///////////////////////////////////////////////////////////////
     } else if (args[0].equals("-r")) {
-      System.out.println("Enter an index between " + 1 + " and " + myList.listOfThings.size());
+      System.out.println("Unsupported argument. Enter an index between " + 1 + " and " + myList.listOfThings.size());
     }
+
     if (args[0].equals("-c") && Integer.parseInt(args[1]) <= myList.listOfThings.size()) {
       myList.listOfThings.get(Integer.parseInt(args[1]) - 1).setCompleted(true);
       System.out.println(myList);
@@ -97,7 +101,6 @@ public class App {
     }
     return text;
   }
-
 
 
 }
